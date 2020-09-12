@@ -17,3 +17,10 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+Route.on('/home').render('Home').middleware(['admin'])
+Route.get('/login', 'LoginController.index')
+Route.post('/login', 'LoginController.login')
+Route.get('/logout', 'LoginController.logout')
+
+
+Route.resource('item', 'Itemcontroller').middleware(['admin'])
